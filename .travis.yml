@@ -13,16 +13,16 @@ branches:
         - develop
 
 before_install:
-    - docker build -t vane98/vnig-portfolio -f ./test.Dockerfile .
+    - docker build -t vane98/personal-portfolio -f ./test.Dockerfile .
 
-before_install:
+before_script:
     #PACKAGES NEEDED FOR SSH CONNECTION
     - sudo apt-get install sshpass
     # DISABLE HOST CHECKING IN SSH CONNECTION
     - echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
 script:
-    - docker run vane98/vnig-portfolio npm test -- --wath=false
+    - docker run vane98/personal-portfolio npm test -- --wath=false
 
 after_success:
     - docker build -t vane98/vnig-portfolio .
