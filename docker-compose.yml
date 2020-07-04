@@ -1,0 +1,12 @@
+version: "3.5"
+services: 
+    personal-portfolio:
+        container_name: personal-portfolio
+        build: 
+            context: ./
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - ./:/app
+            - /app/node_modules  
+        ports: 
+            - "4400:4400"

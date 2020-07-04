@@ -1,0 +1,28 @@
+language: generic
+dist: trusty
+services:
+    - docker
+
+addons:
+    apt:
+        update: true
+
+branches:
+    only:
+        - master
+        - develop
+
+before_install:
+    - docker build -t vane98/vnig-portfolio -f ./test.Dockerfile .
+
+before_install:
+    - sudo apt-get install sshpass
+    - echo "StricHostKeyChecking no" >> ~/.shh/config
+
+script:
+    - dockr run vane98/vnig-portfolio npm test --wath=false
+
+after_success:
+    - docker build -t vane98/vnig-portfolio .
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+

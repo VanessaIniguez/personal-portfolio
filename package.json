@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --host 0.0.0.0 --disable-host-check --base-href /vniporfolio/",
+    "build": "ng build --prod --base-href /vniporfolio/",
     "test": "ng test",
+    "test:prod" : "npm test -- --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
