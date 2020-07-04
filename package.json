@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --disable-host-check --base-href /vniporfolio/",
-    "build": "ng build --prod --base-href /vniporfolio/",
+    "start": "ng serve --host 0.0.0.0 --disable-host-check --base-href /vanessa-iniguez/",
+    "build": "ng build --prod --base-href /vanessa-iniguez/",
     "test": "ng test",
     "test:prod" : "npm test -- --watch=false",
     "lint": "ng lint",
