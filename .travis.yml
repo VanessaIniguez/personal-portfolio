@@ -22,7 +22,7 @@ before_script:
     - echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
 script:
-    - docker run vane98/personal-portfolio npm test -- --wath=false
+    - docker run vane98/personal-portfolio npm test -- --watch=false
 
 after_success:
     - docker build -t vane98/vnig-portfolio .
