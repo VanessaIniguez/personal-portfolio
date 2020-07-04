@@ -25,4 +25,5 @@ script:
 after_success:
     - docker build -t vane98/vnig-portfolio .
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - docker push vane98/vnig-portfolio
 
