@@ -20,7 +20,7 @@ before_install:
     - echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
 script:
-    - dockr run vane98/vnig-portfolio npm test --wath=false
+    - docker run vane98/vnig-portfolio npm test --wath=false
 
 after_success:
     - docker build -t vane98/vnig-portfolio .
