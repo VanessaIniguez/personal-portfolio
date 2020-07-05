@@ -7,6 +7,6 @@ RUN npm run build
 
 
 FROM nginx
-EXPOSE 4400
+EXPOSE 4203
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist/personal-portfolio /usr/share/nginx/html
