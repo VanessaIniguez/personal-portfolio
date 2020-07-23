@@ -29,3 +29,11 @@ after_success:
     - echo  "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push vane98/vnig-portfolio
 
+deploy:
+    skip_cleanup: true
+    provider: script
+    script: sshpass -p "$VPS_PASSWORD" ssh "$VPS_USER"@"$VPS_IP" "cd $VPS_DOCKER_PATH && sudo docker-compose down && "$VPS_PASSWORD"  && docker image rm vane98/vnig-portfolio && docker-compose up --build -d"
+    on:
+     branch: master
+
+
