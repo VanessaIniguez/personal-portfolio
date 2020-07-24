@@ -32,7 +32,7 @@ after_success:
 deploy:
     skip_cleanup: true
     provider: script
-    script: sshpass -p "$VPS_PASSWORD" ssh "$VPS_USER"@"$VPS_IP" " echo "$VPS_PASSWORD" | sudo -S cd $VPS_DOCKER_PATH &&  sudo -S docker-compose down && sudo -S docker image rm vane98/vnig-portfolio && sudo -S docker-compose up --build -d"
+    script: sshpass -p "$VPS_PASSWORD" ssh "$VPS_USER"@"$VPS_IP" "cd $VPS_DOCKER_PATH && echo '$VPS_PASSWORD' | sudo -S docker-compose down && sudo -S docker image rm vane98/vnig-portfolio && sudo -S docker-compose up --build -d"
     on:
      branch: master
 
